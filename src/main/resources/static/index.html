@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Conecta Nequi - Api Client</title>
+        <title>Conecta Nequi - Api Client Java</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="/favicon.png">
@@ -29,7 +29,19 @@
                             <span class="icon">
                                 <i class="fas fa-user-shield"></i>
                             </span>
-                            <a href="/auth/token" target="_blank">Obtener un token</a>
+                            <a href="/auth/token">Obtener un token</a>
+                        </li>
+                    </ul>
+
+                    <ul class="mt-4">
+                        <h3 class="title is-4 mt-1">
+                            Pagos con código QR
+                        </h3>
+                        <li>
+                            <span class="icon">
+                                <i class="fas fa-qrcode"></i>
+                            </span>
+                            <a href="/payment-qr/generate-qr-code">Generar un código QR</a>
                         </li>
                     </ul>
 
@@ -41,7 +53,7 @@
                             <span class="icon">
                                 <i class="fas fa-money-bill-alt"></i>
                             </span>
-                            <a href="/payment-by-push/unregistered-payment" target="_blank">Solicitu de pago</a>
+                            <a href="/payment-by-push/unregistered-payment">Solicitu de pago</a>
                         </li>
                     </ul>
                 </div>

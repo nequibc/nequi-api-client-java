@@ -9,8 +9,8 @@
     </head>
     <body>
     <div class="container p-2">
-        <h1 class="title">Pagos con Notificación</h1>
-        <h2 class="subtitle">Solicitud de pago</h2>
+        <h1 class="title">Pagos con código QR</h1>
+        <h2 class="subtitle">Generar código QR</h2>
 
         <h5 class="subtitle is-5">Logs</h5>
         <div th:each="log: ${logs}" th:class="${log[0].equals('error')} ? 'has-text-danger' : 'has-text-' + ${log[0]}">

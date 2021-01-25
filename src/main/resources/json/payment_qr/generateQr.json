@@ -1,0 +1,27 @@
+{
+  "RequestMessage": {
+    "RequestHeader": {
+      "Channel": "PQR03-C001",
+      "RequestDate": "2017-06-21T20:26:12.654Z",
+      "MessageID": "1234567890",
+      "ClientID": "12345",
+      "Destination": {
+        "ServiceName": "PaymentsService",
+        "ServiceOperation": "generateCodeQR",
+        "ServiceRegion": "C001",
+        "ServiceVersion": "1.2.0"
+      }
+    },
+    "RequestBody": {
+      "any": {
+        "generateCodeQRRQ": {
+          "code": "NIT_1",
+          "value": "1",
+          "reference1": "reference1",
+          "reference2": "reference2",
+          "reference3": "reference3"
+        }
+      }
+    }
+  }
+}

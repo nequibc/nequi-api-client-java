@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.ArrayList;
 
 @Controller()
-public class PaymentPushController {
-    @GetMapping("/payment-by-push/unregistered-payment")
-    public String validateClient(Model model) {
+public class PaymentQRController {
+    @GetMapping("/payment-qr/generate-qr-code")
+    public String generateQrCode(Model model) {
         ArrayList logs = new ArrayList();
 
         try {
-            logs.add(new String[] { "info", "Generando solicitud..."});
+            logs.add(new String[] { "info", "Generando código QR..."});
 
             ApiClientFactory factory = new ApiClientFactory();
             NequiPaymentsGatewayClient client = factory.build(NequiPaymentsGatewayClient.class);
 
-            JsonObject jsonResponse = client.servicesPaymentserviceUnregisteredpaymentPost(
-                BodyUtils.getBodyUnregisteredPayment(),
+            JsonObject jsonResponse = client.servicesPaymentserviceGeneratecodeqrPost(
+                BodyUtils.getBodyGenerateQR(),
                 NequiAuth.getInstance().fromEnvVars().getToken(),
                 System.getenv(Constants.ENV_VAR_NEQUI_API_KEY)
             );
@@ -39,13 +39,13 @@ public class PaymentPushController {
             String statusDesc = jsonStatus.get("desc").getAsString();
 
             if (statusCode != null && Constants.NEQUI_STATUS_CODE_SUCCESS.equals(statusCode)) {
-                logs.add(new String[] { "success", "Solicitud de pago realizada correctamente"});
+                logs.add(new String[] { "success", "Código generado correctamente"});
 
-                JsonObject jsonResult = ClientUtils.getResponseResult(jsonResponse, "unregisteredPaymentRS");
+                JsonObject jsonResult = ClientUtils.getResponseResult(jsonResponse, "generateCodeQRRS");
 
-                String trnId = jsonResult.get("transactionId").getAsString();
+                String codeQR = jsonResult.get("codeQR").getAsString();
 
-                logs.add(new String[] { "success", String.format("Id Transacción: %s", trnId)});
+                logs.add(new String[] { "success", String.format("Código QR: %s", codeQR)});
             } else {
                 throw new Exception(String.format("Error %s = %s", statusCode, statusDesc.trim()));
             }
@@ -55,6 +55,6 @@ public class PaymentPushController {
 
         model.addAttribute("logs", logs);
 
-        return "payment_push/unregisteredPayment";
+        return "payment_qr/generateQRCode";
     }
 }
