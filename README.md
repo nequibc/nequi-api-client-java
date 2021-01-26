@@ -41,6 +41,14 @@ Para el código anterior, el **API key** está como una variable de entorno, per
 considere apropiado para almacenarla. Lo recomendable es que no se use como un valor fijo en el código que dificulte el cambio
 en caso de ser necesario.
 
+Una vez tenga el cliente instanciado, todos los servicios que podrá consumir reciben un JSON como insumo, el cual tiene una estructura
+genérica flexible para soportar cada servicio. En este repositorio se comparte una forma de obtener 2 valores que debe enviar en el JSON mencionado:
+- ```RequestDate```: Fecha de la petición en formato ```Año(4)-Mes(2)-Día(2)'T'Hora(2):Minutos(2):Segundos(2).Milisegundos(3)'Z'```, como ejemplo ```2021-01-17T12:17:59.069Z```, la cual podrá obtener usando ```BodyUtils.getRequestDate();```.
+- ```MessageId```: Identificador único de la petición, el cual puede obtener usando ```BodyUtils.getRequestMessageId();```.
+
+No es obligatorio que use los métodos propuestos en este repositorio, usted o su equipo de desarrollo puede ajustarlos o usar otros
+totalmente diferentes, siempre cumplan con las necesidades requeridas.
+
 ### Autenticación en Nequi Conecta
 
 En el archivo ```/com/nequi/controllers/AuthController.java``` podrá encontrar el código necesario para autenticarse, 
@@ -54,7 +62,7 @@ debe suministrar las siguientes variables de entorno:
     - ```NEQUI_CLIENT_SECRET```: Proveida por Conecta Nequi(ver sección *"Credenciales de acceso"*).
     - ```NEQUI_AUTH_URI```: Es la URI del endpoint que debe consumir para autenticarse, para pruebas es ```https://oauth.sandbox.nequi.com/oauth2/token```.
     - ```NEQUI_AUTH_GRANT_TYPE```: Tipo de acceso a los recursos del API, el valor recomendado es ```client_credentials```.
-    
+    ####
     Una vez listas las variables de entorno, basta con instanciar la clase ```NequiAuth``` de la siguiente forma ```NequiAuth.getInstance().fromEnvVars();```.
     ####
 2. Asignación de los datos necesarios manualmente: Con este mecanismo podrá asignar manualmente los valores que se necesitan para autenticarse

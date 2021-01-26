@@ -4,6 +4,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.io.File;
 import java.nio.file.Files;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 public class BodyUtils {
     public static JsonObject getBodyUnregisteredPayment() throws Exception {
@@ -25,5 +28,15 @@ public class BodyUtils {
         String json = new String(Files.readAllBytes(file.toPath()));
 
         return new JsonParser().parse(json).getAsJsonObject();
+    }
+
+    public String getRequestDate() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+
+        return format.format(new Date());
+    }
+
+    public String getRequestMessageId() {
+        return UUID.randomUUID().toString();
     }
 }
