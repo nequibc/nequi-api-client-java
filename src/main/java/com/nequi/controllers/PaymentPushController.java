@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @Controller()
 public class PaymentPushController {
     @GetMapping("/payment-by-push/unregistered-payment")
-    public String validateClient(Model model) {
+    public String unregisteredPayment(Model model) {
         ArrayList logs = new ArrayList();
 
         try {
