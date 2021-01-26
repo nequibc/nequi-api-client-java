@@ -22,6 +22,25 @@ Los anteriores datos los podrá encontrar en la sección **Credenciales** en el 
 
 Recuerde que podrá encontrar el detalle de los recursos ofrecidos por el API en el siguiente enlace [https://docs.conecta.nequi.com.co/](https://docs.conecta.nequi.com.co/).
 
+En todos los ejemplos ofrecidos en este repositorio encontrará que el consumo de los servicios se hace mediante ```ApiClientFactory``` de Amazon,
+usando el siguiente código para instanciar dicho cliente:
+```
+// Clase de AWS que permite crear el cliente del API para consumir los servicios
+ApiClientFactory factory = new ApiClientFactory();
+
+
+// Establecer el API key necesario para consumir los servicios,
+// el cual puede encontrar en su cuenta de Nequi Conecta.
+factory.apiKey(System.getenv(Constants.ENV_VAR_NEQUI_API_KEY));
+
+// Creación del cliente del API con el cual podrá llamar los servicios ofrecidos
+NequiPaymentsGatewayClient client = factory.build(NequiPaymentsGatewayClient.class);
+```
+
+Para el código anterior, el **API key** está como una variable de entorno, pero usted puede usar cualquier mecanismo que
+considere apropiado para almacenarla. Lo recomendable es que no se use como un valor fijo en el código que dificulte el cambio
+en caso de ser necesario.
+
 ### Autenticación en Nequi Conecta
 
 En el archivo ```/com/nequi/controllers/AuthController.java``` podrá encontrar el código necesario para autenticarse, 

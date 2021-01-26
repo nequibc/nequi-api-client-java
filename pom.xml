@@ -41,12 +41,22 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-		<dependency>
+		<!--
+			Use la siguiente dependencia solo cuando está desarrollando en pararelo cambios en el SDK de QA,
+			de lo contrario use la dependecia directa desde maven.
+		-->
+		<!--<dependency>
 			<groupId>com.nequi</groupId>
 			<artifactId>nequi-payments-sdk-qa</artifactId>
 			<version>2.0.0</version>
 			<scope>system</scope>
 			<systemPath>${pom.basedir}/lib/nequi-payments-sdk-qa-2.0.0-with-dependencies.jar</systemPath>
+		</dependency>-->
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-payments-sdk-qa</artifactId>
+			<version>2.0.0</version>
 		</dependency>
 	</dependencies>
 

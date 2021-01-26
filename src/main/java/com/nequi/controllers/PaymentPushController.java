@@ -23,12 +23,13 @@ public class PaymentPushController {
             logs.add(new String[] { "info", "Generando solicitud..."});
 
             ApiClientFactory factory = new ApiClientFactory();
+            factory.apiKey(System.getenv(Constants.ENV_VAR_NEQUI_API_KEY));
+
             NequiPaymentsGatewayClient client = factory.build(NequiPaymentsGatewayClient.class);
 
             JsonObject jsonResponse = client.servicesPaymentserviceUnregisteredpaymentPost(
                 BodyUtils.getBodyUnregisteredPayment(),
-                NequiAuth.getInstance().fromEnvVars().getToken(),
-                System.getenv(Constants.ENV_VAR_NEQUI_API_KEY)
+                NequiAuth.getInstance().fromEnvVars().getToken()
             );
 
             logs.add(new String[] { "info", "El API procesó la solicitud correctamente"});
