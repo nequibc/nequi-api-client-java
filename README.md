@@ -57,7 +57,6 @@ las operaciones que se pueden hacer sobre el API de Nequi. A continuación un br
 // Clase de AWS que permite crear el cliente del API para consumir los servicios
 ApiClientFactory factory = new ApiClientFactory();
 
-
 // Establecer el API key necesario para consumir los servicios,
 // el cual puede encontrar en su cuenta de Nequi Conecta.
 factory.apiKey(System.getenv(Constants.ENV_VAR_NEQUI_API_KEY));
