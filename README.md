@@ -18,12 +18,41 @@ Asegúrese de tener las credenciales necesarias para hacer el consumo del API, l
 
 Los anteriores datos los podrá encontrar en la sección **Credenciales** en el siguiente enlace [https://conecta.nequi.com/content/consultas](https://conecta.nequi.com/content/consultas "Nequi Conecta").
 
+### SDK de Nequi
+
+Para poder consumir el API de Nequi en su proyecto Java debe agregar el SDK como una dependencia de maven. 
+El id del artefacto cambia según el ambiente: [QA](https://search.maven.org/search?q=a:nequi-payments-sdk-qa) o 
+[Producción](https://search.maven.org/search?q=a:nequi-payments-sdk).
+
+Incluya en la parte de dependencias de su archivo ```pom.xml``` lo siguiente:
+- Para el ambiente de **pruebas o QA**:
+```
+<dependency>
+    <groupid>com.nequi</groupid>
+    <artifactid>nequi-payments-sdk-qa</artifactid>
+    <version>2.0.0</version>
+</dependency>
+```
+- Para el ambiente de **producción**:
+```
+<dependency>
+    <groupid>com.nequi</groupid>
+    <artifactid>nequi-payments-sdk</artifactid>
+    <version>2.0.0</version>
+</dependency>
+```
+
+*Si no va a usar el artefacto de maven sino que el equipo de NEQUI le entregó los jars requeridos, agregue estos al classpath de su proyecto; 
+o en caso que tenga las fuentes del SDK de Java en un .zip, descomprímalo y en la raíz donde se encuentra el archivo ```pom.xml``` ejecute el 
+comando ```mvn install``` para instalar el paquete en su repositorio local de maven.*
+
 ## 2. Ejemplos de integración
 
 Recuerde que podrá encontrar el detalle de los recursos ofrecidos por el API en el siguiente enlace [https://docs.conecta.nequi.com.co/](https://docs.conecta.nequi.com.co/).
 
-En todos los ejemplos ofrecidos en este repositorio encontrará que el consumo de los servicios se hace mediante ```ApiClientFactory``` de Amazon,
-usando el siguiente código para instanciar dicho cliente:
+En todos los ejemplos ofrecidos en este repositorio encontrará que el consumo de los servicios se hace mediante el 
+objeto ```ApiClientFactory``` y la interfaz ```NequiPaymentsGatewayClient``` que representa el contrato de servicio con 
+las operaciones que se pueden hacer sobre el API de Nequi. A continuación un breve código para instanciar dicho cliente:
 ```
 // Clase de AWS que permite crear el cliente del API para consumir los servicios
 ApiClientFactory factory = new ApiClientFactory();
