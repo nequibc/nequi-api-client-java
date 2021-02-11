@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Conecta Nequi - Api Client Java</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    </head>
+    <body>
+        <div class="container p-2">
+            <h1 class="title">Subscripciones</h1>
+            <h2 class="subtitle">Nueva subscripción</h2>
+
+            <h5 class="subtitle is-5">Logs</h5>
+            <div th:each="log: ${logs}" th:class="${log[0].equals('error')} ? 'has-text-danger' : 'has-text-' + ${log[0]}">
+                <span th:text="'[' + ${#strings.capitalize(log[0])} + '] > ' + ${log[1]}"></span>
+            </div>
+        </div>
+        <footer class="container mt-3">
+            <a class="button is-primary is-outlined" href="/">
+                <span class="icon is-small">
+                    <i class="fas fa-home"></i>
+                </span>
+                <span>Volver al inicio</span>
+            </a>
+        </footer>
+    </body>
+</html>

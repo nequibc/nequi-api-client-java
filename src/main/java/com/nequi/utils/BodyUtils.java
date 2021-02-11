@@ -17,6 +17,14 @@ public class BodyUtils {
         return BodyUtils.loadJson("json/payment_qr/generateQr.json");
     }
 
+    public static JsonObject getBodyNewSubscription() throws Exception {
+        return BodyUtils.loadJson("json/subscriptions/newSubscription.json");
+    }
+
+    public static JsonObject getBodyValidateClient() throws Exception {
+        return BodyUtils.loadJson("json/cash_in_out/validateClient.json");
+    }
+
     private static JsonObject loadJson(String jsonResourcePath) throws Exception {
         File file = new File(
                 BodyUtils.class

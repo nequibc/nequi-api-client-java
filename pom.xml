@@ -42,7 +42,7 @@
 		</dependency>
 
 		<!--
-			Use la siguiente dependencia solo cuando está desarrollando en pararelo cambios en el SDK de QA,
+			Use la siguientes dependencias solo cuando está desarrollando en pararelo cambios en los SDKs de QA,
 			de lo contrario use la dependecia directa desde maven.
 		-->
 		<!--<dependency>
@@ -51,6 +51,22 @@
 			<version>2.0.0</version>
 			<scope>system</scope>
 			<systemPath>${pom.basedir}/lib/nequi-payments-sdk-qa-2.0.0-with-dependencies.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-subscriptions-sdk-qa</artifactId>
+			<version>2.0.0</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/nequi-subscriptions-sdk-qa-2.0.0-with-dependencies.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-banking-agents-sdk-qa</artifactId>
+			<version>1.0.0</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/nequi-banking-agents-sdk-qa-1.0.1-with-dependencies.jar</systemPath>
 		</dependency>-->
 
 		<dependency>
@@ -58,8 +74,19 @@
 			<artifactId>nequi-payments-sdk-qa</artifactId>
 			<version>2.0.0</version>
 		</dependency>
-	</dependencies>
 
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-subscriptions-sdk-qa</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-banking-agents-sdk-qa</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -68,5 +95,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
