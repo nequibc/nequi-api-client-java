@@ -1,0 +1,25 @@
+{
+  "RequestMessage": {
+    "RequestHeader": {
+      "Channel": "PDA05-C001",
+      "RequestDate": "2017-06-21T20:26:12.654Z",
+      "MessageID": "1234567890",
+      "ClientID": "12345",
+      "Destination": {
+        "ServiceName": "SubscriptionPaymentService",
+        "ServiceOperation": "newSubscription",
+        "ServiceRegion": "C001",
+        "ServiceVersion": "1.0.0"
+      }
+    },
+    "RequestBody": {
+      "any": {
+        "newSubscriptionRQ": {
+          "phoneNumber": "3998764643",
+          "code": "NIT_1",
+          "name": "1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.nequi.api</groupId>
+	<artifactId>NequiApiClientRest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Nequi Api Webapp</name>
+	<description>Demo project for Nequi API Services</description>
+	<properties>
+		<java.version>1.8</java.version>
+		<aws-android-sdk-version>[2.2.6, 2.3)</aws-android-sdk-version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<!--
+			Use la siguientes dependencias solo cuando está desarrollando en pararelo cambios en los SDKs de QA,
+			de lo contrario use la dependecia directa desde maven.
+		-->
+		<!--<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-payments-sdk-qa</artifactId>
+			<version>2.0.0</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/nequi-payments-sdk-qa-2.0.0-with-dependencies.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-subscriptions-sdk-qa</artifactId>
+			<version>2.0.0</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/nequi-subscriptions-sdk-qa-2.0.0-with-dependencies.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-banking-agents-sdk-qa</artifactId>
+			<version>1.0.0</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/nequi-banking-agents-sdk-qa-1.0.1-with-dependencies.jar</systemPath>
+		</dependency>-->
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-payments-sdk-qa</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-subscriptions-sdk-qa</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nequi</groupId>
+			<artifactId>nequi-banking-agents-sdk-qa</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
